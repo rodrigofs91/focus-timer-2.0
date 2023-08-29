@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --hue: 240;
+
+  --base-color: hsl(var(--hue), 6%, 21%);
+  --bg-color: #ffffff;
+  --card-color: #e1e1e6;
+  --hover-card-color: #02799d;
+
+  font-size: 62.5%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 12.6rem;
+
+  min-height: 100vh;
+  color: var(--base-color);
+  background-color: var(--bg-color);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+svg fill {
+  fill: var(--base-color);
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  gap: 19.2rem;
+}
+
+.player-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.player-controls .timer {
+  display: flex;
+}
+
+.player-controls .controls {
+  display: flex;
+  gap: 4rem;
+}
+
+.player-controls .controls button {
+  transition: fill 0.3s ease;
+}
+
+.player-controls .controls button:hover svg path {
+  fill: var(--hover-card-color);
+}
+
+.sounds {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+
+  max-width: 31rem;
+}
+
+.sounds button.card {
+  border-radius: 2.4rem;
+  background-color: var(--card-color);
+  transition: background 0.3s ease, fill 0.3s ease;
+}
+
+.sounds button.card:hover,
+.sounds button.card.selected {
+  background-color: var(--hover-card-color);
+}
+
+.sounds button.card:hover svg path,
+.sounds button.card.selected svg path {
+  fill: var(--bg-color);
+}
+
+@media (max-width: 900px) {
+  #app {
+    flex-direction: column;
+    gap: 8rem;
+  }
+}
